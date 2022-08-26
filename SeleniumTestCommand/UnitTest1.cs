@@ -14,11 +14,11 @@ namespace SeleniumTestCommand
     public class UnitTest1
     {
         [TestMethod]
-       // [Ignore]
+        [Ignore]
         public void TestMethod1()
         {
              ChromeDriver driver=new ChromeDriver();
-            driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form");
+            driver.Navigate().GoToUrl("https://webdriveruniversity.com/");
             driver.Manage().Window.Maximize();
            // String title=driver.Title;
             // if(driver.Title().eueals("TOOLSQA")){
@@ -43,6 +43,7 @@ namespace SeleniumTestCommand
             driver.Quit();
         }
           [TestMethod]
+          [Ignore]
             public void TestMethod2()
         {
             ChromeDriver driver=new ChromeDriver();
@@ -61,6 +62,26 @@ namespace SeleniumTestCommand
             Thread.Sleep(2000);
             driver.Quit();
         }
+
+        [TestMethod]
+        
+        public void TestMethod3()
+        {
+             ChromeDriver driver=new ChromeDriver();
+            driver.Navigate().GoToUrl("https://www.wikipedia.org/");
+            driver.Manage().Window.Maximize();
+
+            IWebElement SearchText1=driver.FindElement(By.Id("searchInput"));
+            SearchText1.SendKeys("Anna University");
+            Thread.Sleep(3000);
+
+            IWebElement SearchText2=driver.FindElement(By.XPath("//i[text()='Search']"));
+            SearchText2.Click();
+            Thread.Sleep(3000);
+
+            IWebElement othername =  driver.FindElement(By.XPath("//td[@class='infobox-data nickname']"));
+            Assert.IsTrue(othername.Text.Contains("AU"));
     }
     }
+}
 
